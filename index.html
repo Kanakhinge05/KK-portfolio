@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanak Kumar Hinge | AWS DevOps Engineer & Mechanical Engineering Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --accent: #E74C3C;
+            --accent-light: #F39C12;
+            --github: #24292E;
+            --github-accent: #0366D6;
+            --text: #34495E;
+            --text-light: #7F8C8D;
+            --background: #FDFEFE;
+            --card-bg: #FFFFFF;
+            --border: #ECF0F1;
+            --success: #27AE60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+            animation: slideDown 0.6s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="white" opacity="0.1"/></svg>') repeat;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            color: white;
+            animation: fadeInLeft 1s ease-out;
+        }
+        
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .hero-tag {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: white;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0.95;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInRight 1s ease-out;
+        }
+        
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-github {
+            background: var(--github);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-github:hover {
+            background: #1a1e22;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(36, 41, 46, 0.4);
+        }
+        
+        /* Section Styling */
+        .section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* GitHub Section */
+        .github-section {
+            background: linear-gradient(135deg, #24292E 0%, #1a1e22 100%);
+            color: white;
+            padding: 5rem 2rem;
+        }
+        
+        .github-profile {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .github-avatar-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .github-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .github-username {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .github-handle {
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .github-bio {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .github-bio-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .github-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .github-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .github-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .github-stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .github-stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .github-stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 0.5rem;
+            color: var(--accent-light);
+        }
+        
+        .github-stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        
+        .github-achievements {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .achievements-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .achievement-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .achievement-badge:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .achievement-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Repository Cards */
+        .repos-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .repo-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .repo-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--github-accent);
+        }
+        
+        .repo-header {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .repo-icon {
+            font-size: 1.5rem;
+        }
+        
+        .repo-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--github-accent);
+            text-decoration: none;
+            flex: 1;
+        }
+        
+        .repo-name:hover {
+            text-decoration: underline;
+        }
+        
+        .repo-visibility {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .repo-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .repo-footer {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .repo-language {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .language-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-light);
+        }
+        
+        /* Summary Card */
+        .summary-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .summary-card p {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+        
+        .timeline-number {
+            position: absolute;
+            left: -2.8rem;
+            top: -0.2rem;
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
+        
+        .timeline-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .timeline-meta {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-location {
+            color: var(--accent-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            border-top: 3px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1rem;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-list li::before {
+            content: '✦';
+            color: var(--accent);
+            font-size: 0.75rem;
+        }
+        
+        /* DevOps Skills */
+        .devops-skills {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 5rem 2rem;
+        }
+        
+        .devops-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .devops-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--github-accent);
+        }
+        
+        .devops-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .devops-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .devops-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .devops-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .tech-tag {
+            padding: 0.35rem 0.75rem;
+            background: rgba(3, 102, 214, 0.1);
+            border: 1px solid var(--github-accent);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--github-accent);
+        }
+        
+        /* Education Cards */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .education-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .education-card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            transform: translateX(10px);
+        }
+        
+        .education-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .education-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-degree {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-year {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-section h2 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-section p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-item h4 {
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .contact-item p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent-light);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1A252F;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-content { grid-template-columns: 1fr; }
+            .github-profile { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .nav-links { display: none; }
+            .timeline { padding-left: 1rem; }
+            .timeline-item { padding-left: 1.5rem; }
+            .education-card { grid-template-columns: 1fr; text-align: center; }
+            .education-icon { margin: 0 auto; }
+            .hero { padding: 6rem 1rem 3rem; }
+            .hero-stats { grid-template-columns: 1fr; }
+            .github-stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">KK</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#github">GitHub</a></li>
+                <li><a href="#devops">DevOps</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-tag">🎯 Engineering Excellence Meets Cloud Innovation</span>
+                <h1>Kanak Kumar Hinge</h1>
+                <p class="hero-subtitle">AWS DevOps Engineer & Mechanical Engineering Professional</p>
+                <p class="hero-description">
+                    Bridging mechanical engineering expertise with modern DevOps practices. Specializing in cloud 
+                    automation, CI/CD pipelines, and infrastructure as code while bringing practical engineering 
+                    insights from industrial operations.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/Kanakhinge05" target="_blank" class="btn btn-github">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">GitHub Repos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Internships</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Achievements</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="github-section" id="github">
+        <div class="section-header">
+            <h2 class="section-title" style="color: white;">GitHub Profile</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.7);">Open source contributions and project portfolio</p>
+        </div>
+
+        <div class="github-profile">
+            <div class="github-avatar-card">
+                <img src="https://avatars.githubusercontent.com/u/255483555?v=4" alt="Kanak Kumar Hinge" class="github-avatar">
+                <h3 class="github-username">KKOps</h3>
+                <p class="github-handle">@Kanakhinge05</p>
+                <div class="github-bio">
+                    <div class="github-bio-line">☁️ AWS DevOps Engineer</div>
+                    <div class="github-bio-line">⚙️ CI/CD | 🧱 Terraform</div>
+                    <div class="github-bio-line">🐳 Docker | ☸️ Kubernetes</div>
+                    <div class="github-bio-line">🚀 Automating cloud infrastructure</div>
+                </div>
+                <div class="github-info">
+                    <div class="github-info-item">
+                        📍 Indore, India
+                    </div>
+                    <div class="github-info-item">
+                        📅 Joined Jan 2026
+                    </div>
+                    <div class="github-info-item">
+                        🔗 <a href="https://kanak-kumar-hinge-416ju0h.gamma.site/" target="_blank" style="color: var(--github-accent); text-decoration: none;">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="github-stats-grid">
+                <div class="github-stat-card">
+                    <div class="github-stat-number">3</div>
+                    <div class="github-stat-label">Public Repositories</div>
+                </div>
+                <div class="github-stat-card">
+                    <div class="github-stat-number">0</div>
+                    <div class="github-stat-label">Projects</div>
+                </div>
+                <div class="github-stat-card">
+                    <div class="github-stat-number">0</div>
+                    <div class="github-stat-label">Stars</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="github-achievements">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem; color: white;">GitHub Achievements</h3>
+            <div class="achievements-grid">
+                <div class="achievement-badge">
+                    <div class="achievement-icon">🦈</div>
+                    <div class="achievement-name">Pull Shark</div>
+                </div>
+                <div class="achievement-badge">
+                    <div class="achievement-icon">⚡</div>
+                    <div class="achievement-name">Quickdraw</div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="font-size: 2rem; text-align: center; margin: 4rem 0 2rem; color: white;">Featured Repositories</h3>
+        <div class="repos-grid">
+            <div class="repo-card">
+                <div class="repo-header">
+                    <span class="repo-icon">📁</span>
+                    <a href="https://github.com/Kanakhinge05/demo1" target="_blank" class="repo-name">demo1</a>
+                    <span class="repo-visibility">Public</span>
+                </div>
+                <p class="repo-description">Demo project showcasing DevOps practices and automation workflows.</p>
+                <div class="repo-footer">
+                    <span>⭐ 0</span>
+                    <span>🔱 0</span>
+                </div>
+            </div>
+
+            <div class="repo-card">
+                <div class="repo-header">
+                    <span class="repo-icon">📁</span>
+                    <a href="https://github.com/Kanakhinge05/aws-file" target="_blank" class="repo-name">aws-file</a>
+                    <span class="repo-visibility">Public</span>
+                </div>
+                <p class="repo-description">AWS file management and cloud storage solutions with automated workflows.</p>
+                <div class="repo-footer">
+                    <span>⭐ 0</span>
+                    <span>🔱 0</span>
+                </div>
+            </div>
+
+            <div class="repo-card">
+                <div class="repo-header">
+                    <span class="repo-icon">📁</span>
+                    <a href="https://github.com/Kanakhinge05/my-project" target="_blank" class="repo-name">my-project</a>
+                    <span class="repo-visibility">Public</span>
+                </div>
+                <p class="repo-description">Mini Python project demonstrating automation and scripting capabilities.</p>
+                <div class="repo-footer">
+                    <div class="repo-language">
+                        <span class="language-dot" style="background: #3572A5;"></span>
+                        <span>Python</span>
+                    </div>
+                    <span>⭐ 0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="devops-skills" id="devops">
+        <div class="section-header">
+            <h2 class="section-title">DevOps & Cloud Expertise</h2>
+            <p class="section-subtitle">Modern tools and technologies for cloud infrastructure automation</p>
+        </div>
+        <div class="devops-grid">
+            <div class="devops-card">
+                <div class="devops-icon">☁️</div>
+                <h3>Cloud Platforms</h3>
+                <p>Expert in AWS services and cloud architecture design for scalable solutions.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">AWS</span>
+                    <span class="tech-tag">EC2</span>
+                    <span class="tech-tag">S3</span>
+                    <span class="tech-tag">Lambda</span>
+                    <span class="tech-tag">RDS</span>
+                </div>
+            </div>
+            <div class="devops-card">
+                <div class="devops-icon">🔄</div>
+                <h3>CI/CD Pipelines</h3>
+                <p>Automated deployment workflows for continuous integration and delivery.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Jenkins</span>
+                    <span class="tech-tag">GitHub Actions</span>
+                    <span class="tech-tag">GitLab CI</span>
+                </div>
+            </div>
+            <div class="devops-card">
+                <div class="devops-icon">🧱</div>
+                <h3>Infrastructure as Code</h3>
+                <p>Provisioning and managing infrastructure through code for consistency.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Terraform</span>
+                    <span class="tech-tag">CloudFormation</span>
+                    <span class="tech-tag">Ansible</span>
+                </div>
+            </div>
+            <div class="devops-card">
+                <div class="devops-icon">🐳</div>
+                <h3>Containerization</h3>
+                <p>Building and managing containerized applications for portability.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Docker Compose</span>
+                    <span class="tech-tag">Registry</span>
+                </div>
+            </div>
+            <div class="devops-card">
+                <div class="devops-icon">☸️</div>
+                <h3>Orchestration</h3>
+                <p>Container orchestration and management at scale with Kubernetes.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">Helm</span>
+                    <span class="tech-tag">K8s</span>
+                </div>
+            </div>
+            <div class="devops-card">
+                <div class="devops-icon">📊</div>
+                <h3>Monitoring & Logging</h3>
+                <p>Comprehensive monitoring and logging solutions for system observability.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Prometheus</span>
+                    <span class="tech-tag">Grafana</span>
+                    <span class="tech-tag">ELK Stack</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="section-header">
+            <h2 class="section-title">Professional Summary</h2>
+        </div>
+        <div class="summary-card">
+            <p>
+                Kanak Kumar Hinge is a unique professional who bridges mechanical engineering foundations with modern 
+                DevOps practices. A 2024 B.Tech Mechanical Engineering graduate with hands-on experience in industrial 
+                operations, design, and maintenance, now specializing in AWS DevOps engineering and cloud infrastructure automation.
+            </p>
+            <p>
+                His journey includes internships at Symbiotec Pharmalab Pvt. Ltd. in the primitive maintenance department 
+                and at Western Railway Coaching Depot. His major project involved a time and motion study of the Tandem 
+                axle line forward & rear at Rajshree Engineering Pvt. Ltd. Currently serving as an Engineering Apprentice 
+                at Mylan Pharma Lab Pvt. Ltd., while actively developing expertise in CI/CD, Terraform, Docker, and Kubernetes.
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="experience">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">A journey of continuous learning and hands-on engineering practice</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <h3 class="timeline-title">Engineering Apprentice</h3>
+                <p class="timeline-meta">September 2024 - Present (11 months)</p>
+                <p class="timeline-location">Mylan Pharma Lab Pvt. Ltd.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <h3 class="timeline-title">Internship Project</h3>
+                <p class="timeline-meta">January 2024 - April 2024 (4 months)</p>
+                <p class="timeline-location">Rajshree Engineering Pvt. Ltd., Pithampur</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <h3 class="timeline-title">Internship Trainee</h3>
+                <p class="timeline-meta">June 2023 - July 2023 (2 months)</p>
+                <p class="timeline-location">North Western Railway, Indore, Madhya Pradesh</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <h3 class="timeline-title">Intern</h3>
+                <p class="timeline-meta">July 2022 - August 2022 (2 months)</p>
+                <p class="timeline-location">Symbiotec Pharmalab Pvt. Ltd., Indore District</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2 class="section-title">Technical Skills & Competencies</h2>
+            <p class="section-subtitle">Engineering software and methodologies expertise</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Engineering Software</h3>
+                <ul class="skill-list">
+                    <li>SAP Business Software</li>
+                    <li>AutoCAD Design</li>
+                    <li>CREO 3D Modeling</li>
+                    <li>Calibration & Documentation</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Programming & Scripting</h3>
+                <ul class="skill-list">
+                    <li>Python Programming</li>
+                    <li>Automation Scripts</li>
+                    <li>Shell Scripting</li>
+                    <li>Version Control (Git)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Core Competencies</h3>
+                <ul class="skill-list">
+                    <li>Industrial Operations</li>
+                    <li>Time & Motion Studies</li>
+                    <li>Maintenance Management</li>
+                    <li>Process Optimization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="education">
+        <div class="section-header">
+            <h2 class="section-title">Educational Background</h2>
+            <p class="section-subtitle">Academic foundation in mechanical engineering</p>
+        </div>
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="education-icon">🎓</div>
+                <div class="education-content">
+                    <h3>Medi-Caps University</h3>
+                    <p class="education-degree">Bachelor of Technology - BTech, Mechanical Engineering</p>
+                    <p class="education-year">2020 - 2024</p>
+                </div>
+            </div>
+            <div class="education-card">
+                <div class="education-icon">📚</div>
+                <div class="education-content">
+                    <h3>Chameli Devi Public School</h3>
+                    <p class="education-degree">PCM (Physics, Chemistry, Mathematics)</p>
+                    <p class="education-year">June 2019 - April 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2>Let's Connect</h2>
+            <p>I'm always interested in new opportunities and collaborations in DevOps and mechanical engineering.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>Location</h4>
+                    <p>Indore, Madhya Pradesh, India</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Mobile</h4>
+                    <p><a href="tel:+918602343454">8602343454</a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>Email</h4>
+                    <p><a href="mailto:kanakkumarhinge@gmail.com">kanakkumarhinge@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>GitHub</h4>
+                    <p><a href="https://github.com/Kanakhinge05" target="_blank">@Kanakhinge05</a></p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem;">
+                <a href="mailto:kanakkumarhinge@gmail.com" class="btn btn-primary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Kanak Kumar Hinge. All rights reserved. | <a href="https://github.com/Kanakhinge05" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank">LinkedIn</a></p>
+    </footer>
+</body>
+</html>
