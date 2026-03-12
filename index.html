@@ -7,11 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #090909;
+            --primary: #26ba3d;
             --accent: #6612b5;
             --accent-light: #F39C12;
             --github: #24292E;
             --github-accent: #0366D6;
+            --linkedin: #0A66C2;
+            --linkedin-dark: #004182;
             --text: #34495E;
             --text-light: #7F8C8D;
             --background: #FDFEFE;
@@ -449,6 +451,110 @@
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
         }
+
+        /* LinkedIn Section */
+        .linkedin-section {
+            background: linear-gradient(135deg, var(--linkedin) 0%, var(--linkedin-dark) 100%);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .linkedin-wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .linkedin-left {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .linkedin-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .linkedin-facts {
+            list-style: none;
+            margin-top: 1.25rem;
+            display: grid;
+            gap: 0.75rem;
+            padding: 0;
+        }
+
+        .linkedin-facts li {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 0.75rem;
+            align-items: start;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .linkedin-facts strong {
+            color: white;
+            font-weight: 700;
+        }
+
+        .linkedin-note {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .pill-list {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .pill {
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+
+        .linkedin-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-linkedin {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-linkedin:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-2px);
+        }
+
+        .linkedin-card .LI-profile-badge {
+            display: flex;
+            justify-content: center;
+        }
+
+        .linkedin-card .badge-base__link {
+            color: rgba(255, 255, 255, 0.92) !important;
+            text-decoration: none !important;
+        }
+
+
         
         .repo-card {
             background: rgba(255, 255, 255, 0.1);
@@ -712,6 +818,74 @@
             font-family: 'JetBrains Mono', monospace;
             color: var(--github-accent);
         }
+
+        .devops-extras {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .devops-panel {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--accent);
+        }
+
+        .devops-panel h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .devops-panel p {
+            color: var(--text-light);
+            margin-bottom: 1.25rem;
+        }
+
+        .devops-list {
+            list-style: none;
+            display: grid;
+            gap: 0.85rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .devops-list li {
+            display: grid;
+            grid-template-columns: 18px 1fr;
+            gap: 0.75rem;
+            align-items: start;
+            color: var(--text);
+        }
+
+        .devops-list li::before {
+            content: '✔';
+            color: var(--success);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-top: 0.15rem;
+        }
+
+        .devops-kpis {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.25rem;
+        }
+
+        .devops-kpi {
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(102, 18, 181, 0.08);
+            border: 1px solid rgba(102, 18, 181, 0.25);
+            color: #4b1679;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
         
         /* Education Cards */
         .education-grid {
@@ -844,6 +1018,7 @@
             .hero-content { grid-template-columns: 1fr; }
             .github-profile { grid-template-columns: 1fr; }
             .hero-stats { grid-template-columns: repeat(3, 1fr); }
+            .devops-extras { grid-template-columns: 1fr; }
         }
         
         @media (max-width: 768px) {
@@ -857,6 +1032,8 @@
             .hero { padding: 6rem 1rem 3rem; }
             .hero-stats { grid-template-columns: 1fr; }
             .github-stats-grid { grid-template-columns: 1fr; }
+            .linkedin-wrap { grid-template-columns: 1fr; }
+            .linkedin-facts li { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -867,6 +1044,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#github">GitHub</a></li>
+                <li><a href="#linkedin">LinkedIn</a></li>
                 <li><a href="#devops">DevOps</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -981,6 +1159,67 @@
         </div>
     </section>
 
+    <section class="linkedin-section" id="linkedin">
+        <div class="section-header">
+            <h2 class="section-title" style="color: white;">LinkedIn</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.85);">Live profile badge (updates directly from LinkedIn)</p>
+        </div>
+
+        <div class="linkedin-wrap">
+            <div class="linkedin-left">
+                <div class="linkedin-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 0.75rem; color: white;">LinkedIn at a glance</h3>
+                    <p class="linkedin-note">
+                        Use the live badge to see my latest headline and profile updates. Below are quick pointers to what you’ll find on my LinkedIn and how I’m growing as an AWS DevOps Engineer.
+                    </p>
+
+                    <ul class="linkedin-facts">
+                        <li><strong>Role focus</strong><span>AWS DevOps / Cloud / Platform Engineering</span></li>
+                        <li><strong>Core areas</strong><span>CI/CD • IaC (Terraform) • Docker/Kubernetes • Linux • Observability</span></li>
+                        <li><strong>Open to</strong><span>Internship / Entry-level DevOps roles • Cloud support • Automation</span></li>
+                        <li><strong>Best contact</strong><span><a href="mailto:kanakkumarhinge@gmail.com" style="color: rgba(255,255,255,0.95); text-decoration: underline;">kanakkumarhinge@gmail.com</a></span></li>
+                    </ul>
+
+                    <div class="linkedin-actions">
+                        <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">Open LinkedIn</a>
+                        <a href="#contact" class="btn btn-secondary">Message Me</a>
+                    </div>
+                </div>
+
+                <div class="linkedin-card">
+                    <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem; color: white;">Topics I share</h3>
+                    <p class="linkedin-note">Short updates, labs, and learnings from building cloud automation and delivery pipelines.</p>
+                    <div class="pill-list" aria-label="LinkedIn topics">
+                        <span class="pill">AWS</span>
+                        <span class="pill">CI/CD</span>
+                        <span class="pill">Terraform</span>
+                        <span class="pill">Docker</span>
+                        <span class="pill">Kubernetes</span>
+                        <span class="pill">GitHub Actions</span>
+                        <span class="pill">Jenkins</span>
+                        <span class="pill">Prometheus</span>
+                        <span class="pill">Grafana</span>
+                        <span class="pill">Linux</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="linkedin-card">
+                <h3 style="font-size: 1.75rem; margin-bottom: 0.75rem; color: white;">Live profile badge</h3>
+                <div class="badge-base LI-profile-badge"
+                     data-locale="en_US"
+                     data-size="large"
+                     data-theme="dark"
+                     data-type="VERTICAL"
+                     data-vanity="kanakkumarhinge"
+                     data-version="v1">
+                    <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/kanakkumarhinge?trk=profile-badge" target="_blank" rel="noopener noreferrer">Kanak Kumar Hinge</a>
+                </div>
+                <p class="linkedin-note" style="margin-top: 1rem;">Tip: If the badge doesn’t load (ad-blockers), use the “Open LinkedIn” button.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="devops-skills" id="devops">
         <div class="section-header">
             <h2 class="section-title">DevOps & Cloud Expertise</h2>
@@ -1049,6 +1288,41 @@
                     <span class="tech-tag">Grafana</span>
                 </div>
             </div>
+        </div>
+
+        <div class="devops-extras" aria-label="DevOps portfolio highlights">
+            <div class="devops-panel">
+                <h3>What I deliver</h3>
+                <p>Practical, production-minded DevOps work that improves speed, reliability, and repeatability.</p>
+                <ul class="devops-list">
+                    <li>CI/CD pipelines with clear stages (build → test → security checks → deploy).</li>
+                    <li>Infrastructure as Code using Terraform modules and environment separation.</li>
+                    <li>Containerized workloads with Docker and deployment patterns for Kubernetes.</li>
+                    <li>Monitoring dashboards and alerts to support observability and incident response.</li>
+                </ul>
+            </div>
+
+            <div class="devops-panel">
+                <h3>How I work</h3>
+                <p>Clean automation, readable documentation, and a security-first mindset.</p>
+                <ul class="devops-list">
+                    <li>Git-based workflows, code reviews, and consistent branching conventions.</li>
+                    <li>Least-privilege IAM and secrets handling (never hard-coded in code).</li>
+                    <li>Reusable templates: pipeline files, Terraform stacks, and deployment manifests.</li>
+                    <li>Clear runbooks: setup steps, troubleshooting, and architecture notes.</li>
+                </ul>
+                <div class="devops-kpis" aria-label="Engineering principles">
+                    <span class="devops-kpi">Immutable builds</span>
+                    <span class="devops-kpi">Idempotent IaC</span>
+                    <span class="devops-kpi">Observability</span>
+                    <span class="devops-kpi">Least privilege</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="max-width: 1400px; margin: 2.5rem auto 0; text-align: center;">
+            <p style="color: var(--text-light); margin-bottom: 1rem;">See live project updates in the GitHub section (auto-synced from your account).</p>
+            <a href="#github" class="btn btn-secondary">View Latest Repositories</a>
         </div>
     </section>
 
@@ -1203,6 +1477,7 @@
         <p>&copy; 2026 Kanak Kumar Hinge. All rights reserved. | <a href="https://github.com/Kanakhinge05" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/kanakkumarhinge/" target="_blank">LinkedIn</a></p>
     </footer>
 
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
     <script>
         (function () {
             const GITHUB_USERNAME = 'Kanakhinge05';
@@ -1450,6 +1725,7 @@
                 loadGithub();
             }
         })();
+
     </script>
 </body>
 </html>
