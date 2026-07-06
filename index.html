@@ -7,15 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0ec40e;
+            --primary: #595f59;
             --accent: #6612b5;
             --accent-light: #F39C12;
             --github: #24292E;
             --github-accent: #0366D6;
             --linkedin: #0A66C2;
             --linkedin-dark: #004182;
-            --text: #34495E;
-            --text-light: #7F8C8D;
+            --text: #0d0d0e;
+            --text-light: #1d1e1f;
             --background: #e4e3e9;
             --card-bg: #f3eded;
             --border: #4490a2;
@@ -522,14 +522,14 @@
             color: rgba(255, 255, 255, 0.92);
             text-decoration: none;
             font-size: 0.85rem;
-            background: rgba(0, 0, 0, 0.14);
+            background: rgba(3, 243, 203, 0.14);
             white-space: nowrap;
             transition: all 0.3s ease;
         }
 
         .project-link:hover {
             border-color: rgba(255, 255, 255, 0.38);
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(247, 243, 243, 0.767);
             transform: translateY(-2px);
         }
 
@@ -736,14 +736,14 @@
             width: 32px;
             height: 32px;
             background: var(--accent);
-            color: white;
+            color: rgb(248, 244, 244);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             font-size: 0.875rem;
-            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 4px 10px rgba(46, 2, 204, 0.3);
         }
         
         .timeline-title {
@@ -830,7 +830,7 @@
         
         /* DevOps Skills */
         .devops-skills {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #050505 0%, #faf9fa 100%);
             padding: 5rem 2rem;
         }
         
@@ -843,10 +843,10 @@
         }
         
         .devops-card {
-            background: white;
+            background: rgb(243, 242, 241);
             padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(12, 11, 11, 0.08);
             text-align: center;
             transition: all 0.3s ease;
             border-top: 4px solid var(--github-accent);
@@ -893,7 +893,7 @@
         }
         
         .tech-tag:hover {
-            background: rgba(3, 102, 214, 0.2);
+            background: rgba(6, 118, 247, 0.2);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(3, 102, 214, 0.2);
         }
@@ -907,7 +907,7 @@
         }
 
         .devops-panel {
-            background: white;
+            background: rgb(212, 214, 216);
             padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -1020,8 +1020,8 @@
         
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-            color: white;
+            background: linear-gradient(135deg, #07a536 0%, #0a0a0a 100%);
+            color: rgb(248, 244, 244);
             padding: 5rem 2rem;
             text-align: center;
         }
@@ -1032,7 +1032,7 @@
         }
         
         .contact-section h2 {
-            color: white;
+            color: rgb(20, 19, 19);
             font-size: 3rem;
             margin-bottom: 1rem;
         }
@@ -1051,7 +1051,7 @@
         }
         
         .contact-item {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(52, 240, 68, 0.1);
             padding: 1.5rem;
             border-radius: 12px;
             backdrop-filter: blur(10px);
@@ -1069,7 +1069,7 @@
         }
         
         .contact-item a {
-            color: white;
+            color: rgb(252, 248, 248);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -1080,7 +1080,7 @@
         
         /* Footer */
         footer {
-            background: #1A252F;
+            background: #0a0a0a;
             color: rgba(255, 255, 255, 0.7);
             padding: 3rem 2rem;
             text-align: center;
@@ -1121,7 +1121,7 @@
         }
         
         .footer-section h4 {
-            color: white;
+            color: rgb(250, 249, 249);
             font-size: 1rem;
             margin-bottom: 0.75rem;
             text-transform: uppercase;
@@ -1142,7 +1142,7 @@
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(243, 237, 237, 0.1);
         }
         
         /* Responsive Design */
@@ -1193,6 +1193,21 @@
             .linkedin-wrap { grid-template-columns: 1fr; }
             .linkedin-facts li { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr; }
+            /* Improve timeline readability on small screens */
+            .timeline {
+                display: grid;
+                gap: 1.25rem;
+            }
+            .timeline-item {
+                background: rgba(255,255,255,0.03);
+                padding: 1.25rem;
+                border-radius: 12px;
+                border: 1px solid rgba(255,255,255,0.04);
+            }
+            .timeline-bullets li {
+                line-height: 1.6;
+                margin-bottom: 0.6rem;
+            }
         }
     </style>
 </head>
@@ -1282,6 +1297,11 @@
             <h2 class="section-title">Professional Summary</h2>
         </div>
         <div class="summary-card">
+            <p>
+                DevOps Engineer with experience in DevOps architecture, AWS administration, and Infrastructure as Code (IaC), building scalable cloud infrastructure and production-grade CI/CD systems on AWS.
+                Proven track record of designing secure, repeatable AWS environments with Terraform, containerizing and orchestrating microservices with Docker and Kubernetes, and automating deployment pipelines to reduce lead time and manual error.
+                Strong focus on observability, system reliability, and applying DevOps/SRE best practices across the software delivery lifecycle.
+            </p>
             <p>
                 Aspiring AWS DevOps Engineer with hands-on knowledge of cloud infrastructure, automation, and CI/CD practices.
                 Familiar with key services of Amazon Web Services including Amazon EC2, Amazon S3, and AWS Identity and Access Management for building and managing scalable cloud environments.
@@ -1381,89 +1401,33 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-number">1</div>
-                <h3 class="timeline-title">Vected Technology Pvt. Ltd., Indore</h3>
-                <p class="timeline-meta">March 2025 - Present</p>
-                <p class="timeline-location">AWS DevOps Engineer</p>
+                <h3 class="timeline-title">DevOps Engineer  |  Vected Technologies Pvt. Ltd.</h3>
+                <p class="timeline-meta">March 2025 – Present · Indore, India</p>
                 <ul class="timeline-bullets">
-                    <li>Automated build and deployment workflows using Jenkins and GitHub Actions to reduce manual release effort.</li>
-                    <li>Provisioned and updated AWS infrastructure with Terraform (VPC, IAM, EC2/S3) using reusable modules.</li>
-                    <li>Containerized services with Docker and supported Kubernetes deployments with repeatable manifests.</li>
-                    <li>Implemented basic monitoring and alerting with CloudWatch logs/metrics to improve operational visibility.</li>
-                    <li>Hardened access patterns with least-privilege IAM policies and secure secret handling for pipelines.</li>
+                    <li>Administered and provisioned AWS infrastructure (EC2, S3, IAM, VPC) using version-controlled Terraform modules, applying Infrastructure as Code principles to enable repeatable, auditable, and secure deployments.</li>
+                    <li>Designed and optimized CI/CD pipelines using GitHub Actions as part of the broader DevOps architecture, reducing deployment lead time by 30% and enabling faster, safer release cycles.</li>
+                    <li>Containerized microservices with Docker and orchestrated deployments on Kubernetes, ensuring 100% environment consistency across development and staging environments.</li>
+                    <li>Enforced infrastructure security through IAM least-privilege policies, VPC network segmentation, and firewall configuration to protect cloud environments against security threats.</li>
+                    <li>Automated infrastructure provisioning and deployment tasks via Bash and Python scripting, eliminating manual steps and reducing human error across the delivery pipeline.</li>
+                    <li>Configured AWS CloudWatch dashboards, alarms, and log-based alerting for proactive system monitoring, performance troubleshooting, and incident response.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <h3 class="timeline-title">DevOps Intern  |  Vected Technologies Pvt. Ltd.</h3>
+                <p class="timeline-meta">November 2024 – February 2025 · Indore, India</p>
+                <ul class="timeline-bullets">
+                    <li>Supported automation of deployment pipelines and management of cloud infrastructure, gaining hands-on experience with CI/CD tooling, Docker, Kubernetes, and AWS administration.</li>
+                    <li>Contributed to Infrastructure as Code initiatives using Terraform and assisted in monitoring and system reliability efforts.</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section class="devops-skills" id="devops">
-        <div class="section-header">
-            <h2 class="section-title">DevOps & Cloud Expertise</h2>
-            <p class="section-subtitle">Modern tools and technologies for cloud infrastructure automation</p>
-        </div>
         <div class="devops-grid">
             <div class="devops-card">
-                <div class="devops-icon">☁️</div>
-                <h3>Cloud Platforms</h3>
-                <p>Expert in AWS services and cloud architecture design for scalable solutions.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">EC2</span>
-                    <span class="tech-tag">S3</span>
-                    <span class="tech-tag">Lambda</span>
-                    <span class="tech-tag">RDS</span>
-                    <span class="tech-tag">VPC</span>
-                    <span class="tech-tag">SNS & SQS</span>
-                    <span class="tech-tag">IAM</span>
-                </div>
-            </div>
-            <div class="devops-card">
-                <div class="devops-icon">🔄</div>
-                <h3>CI/CD Pipelines</h3>
-                <p>Automated deployment workflows for continuous integration and delivery.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Jenkins</span>
-                    <span class="tech-tag">GitHub Actions</span>
-                    <span class="tech-tag">GitLab CI</span>
-                </div>
-            </div>
-            <div class="devops-card">
-                <div class="devops-icon">🧱</div>
-                <h3>Infrastructure as Code</h3>
-                <p>Provisioning and managing infrastructure through code for consistency.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Terraform</span>
-                    <span class="tech-tag">CloudFormation</span>
-                    <span class="tech-tag">Ansible</span>
-                </div>
-            </div>
-            <div class="devops-card">
-                <div class="devops-icon">🐳</div>
-                <h3>Containerization</h3>
-                <p>Building and managing containerized applications for portability.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Docker Compose</span>
-                    <span class="tech-tag">Registry</span>
-                </div>
-            </div>
-            <div class="devops-card">
-                <div class="devops-icon">☸️</div>
-                <h3>Orchestration</h3>
-                <p>Container orchestration and management at scale with Kubernetes.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Kubernetes</span>
-                </div>
-            </div>
-            <div class="devops-card">
-                <div class="devops-icon">📊</div>
-                <h3>Monitoring & Logging</h3>
-                <p>Comprehensive monitoring and logging solutions for system observability.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Prometheus</span>
-                    <span class="tech-tag">Grafana</span>
-                </div>
-            </div>
-        </div>
 
         <div class="devops-extras" aria-label="DevOps portfolio highlights">
             <div class="devops-panel">
@@ -1555,23 +1519,24 @@
     <section class="section" id="education">
         <div class="section-header">
             <h2 class="section-title">Educational Background</h2>
-            <p class="section-subtitle">Academic foundation in mechanical engineering</p>
         </div>
-        <div class="education-grid">
-            <div class="education-card">
-                <div class="education-icon">🎓</div>
-                <div class="education-content">
-                    <h3>Medi-Caps University</h3>
-                    <p class="education-degree">Bachelor of Technology - BTech, Mechanical Engineering</p>
-                    <p class="education-year">2020 - 2024</p>
+        <div style="max-width: 780px; margin: 0 auto;">
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-icon">🎓</div>
+                    <div class="education-content">
+                        <h3>Medi-Caps University</h3>
+                        <p class="education-degree">Bachelor of Technology - BTech, Mechanical Engineering</p>
+                        <p class="education-year">2020 - 2024</p>
+                    </div>
                 </div>
-            </div>
-            <div class="education-card">
-                <div class="education-icon">📚</div>
-                <div class="education-content">
-                    <h3>Chameli Devi Public School</h3>
-                    <p class="education-degree">PCM (Physics, Chemistry, Mathematics)</p>
-                    <p class="education-year">June 2019 - April 2020</p>
+                <div class="education-card">
+                    <div class="education-icon">📚</div>
+                    <div class="education-content">
+                        <h3>Chameli Devi Public School</h3>
+                        <p class="education-degree">PCM (Physics, Chemistry, Mathematics)</p>
+                        <p class="education-year">June 2019 - April 2020</p>
+                    </div>
                 </div>
             </div>
         </div>
