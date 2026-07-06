@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanak Kumar Hinge | Portfolio | AWS DevOps Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
     <style>
         :root {
             --primary: #595f59;
@@ -72,6 +76,41 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1rem;
+        }
+        
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: auto;
+        }
+        
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.15rem;
+            border-radius: 999px;
+            background: none;
+            color: rgb(9, 10, 9);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 8px 20px rgba(8, 8, 8, 0.18);
+        }
+
+        .cv-button img {
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+        }
+        
+        .cv-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(10, 10, 10, 0.24);
         }
         
         .logo {
@@ -1220,15 +1259,18 @@
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#github">Projects</a></li>
-                <li><a href="#linkedin">LinkedIn</a></li>
-                <li><a href="#devops">DevOps</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-actions">
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#github">Projects</a></li>
+                    <li><a href="#linkedin">LinkedIn</a></li>
+                    <li><a href="#devops">DevOps</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="cv-button">CV</a>
+            </div>
         </div>
     </nav>
 
@@ -1278,16 +1320,16 @@
     <section class="github-section" id="github">
         <div class="section-header">
             <h2 class="section-title" style="color: white;">Selected Projects</h2>
-            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.85);">A few projects that reflect how I build and operate cloud systems.</p>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.85);">Starred GitHub repositories that reflect my current interests and hands-on DevOps work.</p>
         </div>
 
         <div class="projects-grid" id="curatedProjects" aria-live="polite">
             <div class="project-card">
                 <div class="project-header">
-                    <h3 class="project-title">Loading projects…</h3>
+                    <h3 class="project-title">Loading starred repositories…</h3>
                     <div class="project-links"></div>
                 </div>
-                <p class="project-description">Fetching curated projects from GitHub metadata.</p>
+                <p class="project-description">Fetching your latest GitHub stars directly from GitHub.</p>
             </div>
         </div>
     </section>
@@ -1627,51 +1669,10 @@
     <script>
         (function () {
             const GITHUB_USERNAME = 'Kanakhinge05';
+            const STARRED_REPOS_LIMIT = 6;
             const CACHE_TTL_MS = 10 * 60 * 1000;
-            const cacheKey = `kk_portfolio_github_cache_v1_${GITHUB_USERNAME}`;
+            const cacheKey = `kk_portfolio_github_starred_cache_v1_${GITHUB_USERNAME}`;
             const GITHUB_PROFILE_URL = `https://github.com/${GITHUB_USERNAME}`;
-
-            const CURATED_PROJECTS = [
-                {
-                    title: 'CI/CD Pipeline for Containerized Apps',
-                    repoName: '',
-                    demoUrl: '',
-                    problem: 'Manual builds and deployments slowed iteration and increased release risk.',
-                    impact: 'Standardized build/test/deploy steps with repeatable pipelines and consistent environments.',
-                    stack: ['Jenkins', 'GitHub Actions', 'Docker', 'AWS'],
-                    highlights: [
-                        'Built multi-stage pipelines with build, test, and deploy stages',
-                        'Added environment-specific configuration and approvals',
-                        'Improved release consistency with versioned artifacts'
-                    ]
-                },
-                {
-                    title: 'Terraform AWS Baseline (VPC + IAM + Compute)',
-                    repoName: '',
-                    demoUrl: '',
-                    problem: 'Infrastructure changes were hard to review and reproduce across environments.',
-                    impact: 'Provisioned AWS resources from code using modules and safer change workflows.',
-                    stack: ['Terraform', 'AWS', 'IAM', 'VPC'],
-                    highlights: [
-                        'Created reusable Terraform modules and variables',
-                        'Applied least-privilege IAM patterns',
-                        'Introduced plan/apply workflows for controlled changes'
-                    ]
-                },
-                {
-                    title: 'Monitoring & Logging Starter Pack',
-                    repoName: '',
-                    demoUrl: '',
-                    problem: 'Limited visibility made it harder to detect and diagnose issues quickly.',
-                    impact: 'Added basic monitoring and dashboards to surface service health signals.',
-                    stack: ['CloudWatch', 'Prometheus', 'Grafana', 'Linux'],
-                    highlights: [
-                        'Centralized logs and key service metrics',
-                        'Configured dashboards for latency/error/throughput views',
-                        'Created alerting rules for common failure conditions'
-                    ]
-                }
-            ];
 
             function $(id) {
                 return document.getElementById(id);
@@ -1722,7 +1723,7 @@
                 return a;
             }
 
-            function buildCuratedCard(project, repo) {
+            function buildStarredRepoCard(repo) {
                 const card = document.createElement('div');
                 card.className = 'project-card';
 
@@ -1731,20 +1732,17 @@
 
                 const title = document.createElement('h3');
                 title.className = 'project-title';
-                title.textContent = safeText(project.title);
+                title.textContent = safeText(repo && repo.name ? repo.name : 'Starred repository');
 
                 const links = document.createElement('div');
                 links.className = 'project-links';
 
-                const githubHref = repo && repo.html_url
-                    ? repo.html_url
-                    : (project.repoName ? `${GITHUB_PROFILE_URL}/${project.repoName}` : GITHUB_PROFILE_URL);
-
+                const githubHref = repo && repo.html_url ? repo.html_url : GITHUB_PROFILE_URL;
                 const githubLink = createProjectLink('GitHub', githubHref);
                 if (githubLink) links.appendChild(githubLink);
 
-                if (project.demoUrl) {
-                    const demoLink = createProjectLink('Live Demo', project.demoUrl);
+                if (repo && repo.homepage) {
+                    const demoLink = createProjectLink('Live Demo', repo.homepage);
                     if (demoLink) links.appendChild(demoLink);
                 }
 
@@ -1753,12 +1751,22 @@
 
                 const description = document.createElement('p');
                 description.className = 'project-description';
-                description.textContent = `${safeText(project.problem, '')} ${safeText(project.impact, '')}`.trim();
+                description.textContent = safeText(repo && repo.description ? repo.description : 'No description provided yet.');
 
                 const bullets = document.createElement('ul');
                 bullets.className = 'project-kpis';
-                const highlights = Array.isArray(project.highlights) ? project.highlights : [];
-                for (const point of highlights.slice(0, 4)) {
+
+                const language = safeText(repo && repo.language ? repo.language : 'Unknown');
+                const stars = safeText(repo && Number.isFinite(Number(repo.stargazers_count)) ? `${repo.stargazers_count}★` : '0★');
+                const updated = safeText(formatMonthYear(repo && repo.updated_at ? repo.updated_at : ''), '—');
+
+                const highlights = [
+                    `Language: ${language}`,
+                    `Stars: ${stars}`,
+                    `Updated: ${updated}`
+                ];
+
+                for (const point of highlights) {
                     const li = document.createElement('li');
                     li.textContent = safeText(point);
                     bullets.appendChild(li);
@@ -1766,8 +1774,8 @@
 
                 const stack = document.createElement('div');
                 stack.className = 'project-stack';
-                const stackItems = Array.isArray(project.stack) ? project.stack : [];
-                for (const item of stackItems) {
+                const chips = [language, `${stars}`, `Updated ${updated}`];
+                for (const item of chips) {
                     const chip = document.createElement('span');
                     chip.className = 'chip';
                     chip.textContent = safeText(item);
@@ -1782,18 +1790,11 @@
                 return card;
             }
 
-            function renderCuratedProjects(repos, errorMessage) {
+            function renderStarredProjects(starredRepos, errorMessage) {
                 const grid = $('curatedProjects');
                 if (!grid) return;
 
-                const repoMap = new Map();
-                if (Array.isArray(repos)) {
-                    for (const repo of repos) {
-                        const key = String(repo && repo.name ? repo.name : '').toLowerCase();
-                        if (key) repoMap.set(key, repo);
-                    }
-                }
-
+                const repos = Array.isArray(starredRepos) ? starredRepos : [];
                 grid.innerHTML = '';
 
                 if (errorMessage) {
@@ -1809,9 +1810,22 @@
                     grid.appendChild(warn);
                 }
 
-                for (const project of CURATED_PROJECTS.slice(0, 6)) {
-                    const repo = project.repoName ? repoMap.get(String(project.repoName).toLowerCase()) : null;
-                    grid.appendChild(buildCuratedCard(project, repo));
+                if (!repos.length && !errorMessage) {
+                    const empty = document.createElement('div');
+                    empty.className = 'project-card';
+                    empty.innerHTML = `
+                        <div class="project-header">
+                            <h3 class="project-title">No starred repositories yet</h3>
+                            <div class="project-links"></div>
+                        </div>
+                        <p class="project-description">Star a few repositories on GitHub and refresh the page to see them here.</p>
+                    `;
+                    grid.appendChild(empty);
+                    return;
+                }
+
+                for (const repo of repos.slice(0, STARRED_REPOS_LIMIT)) {
+                    grid.appendChild(buildStarredRepoCard(repo));
                 }
             }
 
@@ -1836,34 +1850,32 @@
                 }
             }
 
+            function applyGithubData(profile, starredRepos) {
+                const repoCount = Number.isFinite(profile && profile.public_repos ? profile.public_repos : NaN) ? profile.public_repos : '—';
+                setText('githubRepoCountHero', repoCount);
+                setText('projectsCountHero', Array.isArray(starredRepos) ? starredRepos.length : 0);
+                renderStarredProjects(starredRepos);
+            }
+
             async function loadGithub() {
                 const cached = readCache();
                 if (cached) {
-                    if (cached.profile) {
-                        const repoCount = Number.isFinite(cached.profile.public_repos) ? cached.profile.public_repos : '—';
-                        setText('githubRepoCountHero', repoCount);
-                    }
-
-                    setText('projectsCountHero', CURATED_PROJECTS.length);
-                    renderCuratedProjects(cached.repos);
-                    return;
+                    applyGithubData(cached.profile, cached.starredRepos);
                 }
 
                 try {
-                    const [profile, repos] = await Promise.all([
+                    const [profile, starredRepos] = await Promise.all([
                         fetchJson(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}`),
-                        fetchJson(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos?per_page=100&sort=created&direction=desc`)
+                        fetchJson(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/starred?per_page=100&sort=updated`)
                     ]);
 
-                    writeCache({ profile, repos });
-
-                    const repoCount = Number.isFinite(profile.public_repos) ? profile.public_repos : '—';
-                    setText('githubRepoCountHero', repoCount);
-                    setText('projectsCountHero', CURATED_PROJECTS.length);
-                    renderCuratedProjects(repos);
+                    writeCache({ profile, starredRepos });
+                    applyGithubData(profile, starredRepos);
                 } catch (err) {
-                    setText('projectsCountHero', CURATED_PROJECTS.length);
-                    renderCuratedProjects(null, err && err.message ? err.message : 'Unknown error.');
+                    if (!cached) {
+                        setText('projectsCountHero', 0);
+                        renderStarredProjects(null, err && err.message ? err.message : 'Unknown error.');
+                    }
                 }
             }
 
