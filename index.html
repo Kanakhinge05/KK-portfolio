@@ -1320,16 +1320,16 @@
     <section class="github-section" id="github">
         <div class="section-header">
             <h2 class="section-title" style="color: white;">Selected Projects</h2>
-            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.85);">Starred GitHub repositories that reflect my current interests and hands-on DevOps work.</p>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.85);">My GitHub repositories that have received stars and reflect my hands-on DevOps work.</p>
         </div>
 
         <div class="projects-grid" id="curatedProjects" aria-live="polite">
             <div class="project-card">
                 <div class="project-header">
-                    <h3 class="project-title">Loading starred repositories…</h3>
+                    <h3 class="project-title">Loading repositories with stars…</h3>
                     <div class="project-links"></div>
                 </div>
-                <p class="project-description">Fetching your latest GitHub stars directly from GitHub.</p>
+                <p class="project-description">Fetching your own GitHub projects that currently have stars.</p>
             </div>
         </div>
     </section>
@@ -1732,7 +1732,7 @@
 
                 const title = document.createElement('h3');
                 title.className = 'project-title';
-                title.textContent = safeText(repo && repo.name ? repo.name : 'Starred repository');
+                title.textContent = safeText(repo && repo.name ? repo.name : 'Repository');
 
                 const links = document.createElement('div');
                 links.className = 'project-links';
@@ -1815,10 +1815,10 @@
                     empty.className = 'project-card';
                     empty.innerHTML = `
                         <div class="project-header">
-                            <h3 class="project-title">No starred repositories yet</h3>
+                            <h3 class="project-title">No repositories with stars yet</h3>
                             <div class="project-links"></div>
                         </div>
-                        <p class="project-description">Star a few repositories on GitHub and refresh the page to see them here.</p>
+                        <p class="project-description">Your own GitHub repositories with stars will appear here once they are available.</p>
                     `;
                     grid.appendChild(empty);
                     return;
@@ -1864,13 +1864,17 @@
                 }
 
                 try {
-                    const [profile, starredRepos] = await Promise.all([
+                    const [profile, repos] = await Promise.all([
                         fetchJson(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}`),
-                        fetchJson(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/starred?per_page=100&sort=updated`)
+                        fetchJson(`https://api.github.com/users/${encodeURIComponent(GITHUB_USERNAME)}/repos?per_page=100&sort=updated`)
                     ]);
 
-                    writeCache({ profile, starredRepos });
-                    applyGithubData(profile, starredRepos);
+                    const ownedReposWithStars = Array.isArray(repos)
+                        ? repos.filter(repo => repo && repo.owner && repo.owner.login === GITHUB_USERNAME && Number(repo.stargazers_count) > 0)
+                        : [];
+
+                    writeCache({ profile, starredRepos: ownedReposWithStars });
+                    applyGithubData(profile, ownedReposWithStars);
                 } catch (err) {
                     if (!cached) {
                         setText('projectsCountHero', 0);
