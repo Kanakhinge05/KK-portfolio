@@ -1,0 +1,10 @@
+services:
+  portfolio:
+    image: kanakkhinge/portfolio:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kk-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
