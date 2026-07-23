@@ -6,5 +6,5 @@ services:
       dockerfile: Dockerfile
     container_name: kk-web
     ports:
-      - "8080:80"
+      - "3454:80"
     restart: unless-stopped
